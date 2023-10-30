@@ -15,7 +15,6 @@ interface ISearchResult {
 
 export default function Result({ searchParams }: ISearchResult) {
 
-    console.log("MARCA", searchParams)
     return (
         <Container>
             <CardContainer>

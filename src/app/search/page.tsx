@@ -16,6 +16,10 @@ import { CardContainer } from '@/components/CardContainer';
 import { ChoiceChip } from "@/components/ChoiceChip";
 import * as Styles from './styles';
 
+type GenericType = {
+    nome: string;
+    codigo: string;
+};
 
 export function Search() {
     const optionVehicle = ["carros", "motos", "caminhoes"]
@@ -24,11 +28,11 @@ export function Search() {
     const [openSnackbar, setOpenSnackbar] = useState(false);
 
     const [selectedType, setSelectedType] = useState<string | null>(null);
-    const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
-    const [selectedModel, setSelectedModel] = useState<string | null>(null);
-    const [selectedYear, setSelectedYear] = useState<string | null>(null);
-    const [models, setModels] = useState<string[]>([]);
-    const [years, setYears] = useState<string[]>([]);
+    const [selectedBrand, setSelectedBrand] = useState<GenericType | null>(null);
+    const [selectedModel, setSelectedModel] = useState<GenericType | null>(null);
+    const [selectedYear, setSelectedYear] = useState<GenericType | null>(null);
+    const [models, setModels] = useState<GenericType[]>([]);
+    const [years, setYears] = useState<GenericType[]>([]);
     const [value, setValue] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -121,7 +125,7 @@ export function Search() {
                     {loading ? <CircularProgress color="inherit" size={'1rem'} /> : 'Consultar Preço'}
                 </Button>
             </CardContainer>
-            
+
             <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={() => setOpenSnackbar(false)}>
                 <Alert onClose={() => setOpenSnackbar(false)} severity="error">
                     Não foi possível completar a pesquisa.
