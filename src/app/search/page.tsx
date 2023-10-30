@@ -21,7 +21,7 @@ type GenericType = {
     codigo: string;
 };
 
-export function Search() {
+const Search = () => {
     const optionVehicle = ["carros", "motos", "caminhoes"]
     const dispatch = useDispatch();
     const brands = useSelector((state: any) => state.search.brands);
@@ -134,3 +134,4 @@ export function Search() {
         </Container>
     )
 }
+export default Search;

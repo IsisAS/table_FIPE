@@ -1,4 +1,4 @@
-import { Search } from "./search/page";
+import Search from "./search/page"
 
 export default function App() {
 
